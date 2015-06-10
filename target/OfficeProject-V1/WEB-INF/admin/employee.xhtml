@@ -16,9 +16,6 @@
 				<h:outputText value="${employee.lastname}" />
 				<h:outputText value="${employee.office.name}" />
 				<h:outputText value="${employee.office.department.name}" />
-				<h:link value="Update" outcome="admin/employee">
-		  			<f:param name="id" value="${employee.id}" />
-		  		</h:link>
 			</div>
 		</c:forEach>
     </ui:define>

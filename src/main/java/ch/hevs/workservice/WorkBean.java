@@ -15,8 +15,12 @@ public class WorkBean implements Work {
 	private EntityManager em;
 	
 	@Override
-	public List<Employee> getEmployees()
-	{
+	public List<Employee> getEmployees() {
 		return (List<Employee>) em.createQuery("SELECT e FROM Employee e").getResultList();
+	}
+
+	@Override
+	public Employee getEmployeeById(long id) {
+		return em.find(Employee.class, id);
 	}
 }

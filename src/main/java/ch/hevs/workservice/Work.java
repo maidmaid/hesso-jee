@@ -9,4 +9,5 @@ import ch.hevs.businessobject.Employee;
 @Local
 public interface Work {
 	public List<Employee> getEmployees();
+	public Employee getEmployeeById(long id);
 }
