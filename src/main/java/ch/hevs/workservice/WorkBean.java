@@ -23,4 +23,10 @@ public class WorkBean implements Work {
 	public Employee getEmployeeById(long id) {
 		return em.find(Employee.class, id);
 	}
+
+	@Override
+	public void updateEmployee(Employee employee) {
+		em.merge(employee);
+		em.flush();
+	}
 }

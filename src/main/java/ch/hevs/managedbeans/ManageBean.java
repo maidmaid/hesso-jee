@@ -53,4 +53,9 @@ public class ManageBean {
 	public void loadEmployee() {
 		this.employee = work.getEmployeeById(employeeId);
 	}
+	
+	public String updateEmployee() {
+		work.updateEmployee(employee);
+		return "admin/employee";
+	}
 }

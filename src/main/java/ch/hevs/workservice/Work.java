@@ -10,4 +10,5 @@ import ch.hevs.businessobject.Employee;
 public interface Work {
 	public List<Employee> getEmployees();
 	public Employee getEmployeeById(long id);
+	public void updateEmployee(Employee employee);
 }
