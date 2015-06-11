@@ -21,8 +21,12 @@
 		<h:outputText value="${manageBean.employee.office.department.name}" />
 		
 		<h:form>
+			<h:inputHidden value="#{manageBean.employee.id}" />
 	    	<h:inputText value="#{manageBean.employee.firstname}" />
 			<h:commandButton value="Save" action="#{manageBean.updateEmployee}" />
+			<h:selectOneMenu value="#{manageBean.officeId}">
+				<f:selectItems value="#{manageBean.offices}" var="office" itemLabel="#{office.name}" itemValue="#{office.id}" />
+			</h:selectOneMenu>
 		</h:form>
 
     </ui:define>

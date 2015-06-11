@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import ch.hevs.businessobject.Employee;
+import ch.hevs.businessobject.Office;
 
 @Stateless
 public class WorkBean implements Work {
@@ -28,5 +29,15 @@ public class WorkBean implements Work {
 	public void updateEmployee(Employee employee) {
 		em.merge(employee);
 		em.flush();
+	}
+
+	@Override
+	public List<Office> getOffices() {
+		return (List<Office>) em.createQuery("SELECT o FROM Office o").getResultList();
+	}
+
+	@Override
+	public Office getOfficeById(long id) {
+		return em.find(Office.class, id);
 	}
 }

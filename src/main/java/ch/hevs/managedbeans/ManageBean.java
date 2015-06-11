@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import ch.hevs.businessobject.Employee;
+import ch.hevs.businessobject.Office;
 import ch.hevs.workservice.Work;
 
 @ManagedBean(name="manageBean")
@@ -20,10 +21,15 @@ public class ManageBean {
 	private List<Employee> employees;
 	private long employeeId;
 	private Employee employee;
+	
+	private List<Office> offices;
+	private long officeId;
 
 	@PostConstruct
     public void initialize() {
 		setEmployees(work.getEmployees());
+		employee = new Employee();
+		offices = work.getOffices();
     }
 
 	// employees
@@ -54,8 +60,26 @@ public class ManageBean {
 		this.employee = work.getEmployeeById(employeeId);
 	}
 	
-	public String updateEmployee() {
+	public String updateEmployee() {		
+		Office office = work.getOfficeById(officeId);
+		employee.setOffice(office);
 		work.updateEmployee(employee);
 		return "admin/employee";
+	}
+
+	public List<Office> getOffices() {
+		return offices;
+	}
+
+	public void setOffices(List<Office> offices) {
+		this.offices = offices;
+	}
+
+	public long getOfficeId() {
+		return officeId;
+	}
+
+	public void setOfficeId(long officeId) {
+		this.officeId = officeId;
 	}
 }
