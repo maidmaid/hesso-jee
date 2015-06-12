@@ -36,19 +36,17 @@
 	    									<tr>
 	    										<td><h:outputText value="${employee.firstname}" /></td>
 	    										<td><h:outputText value="${employee.lastname}" /></td>
-	    										<td>
+	    										<td class="text-right">
 		    										<h:link outcome="admin/employee" styleClass="glyphicon glyphicon-edit">
 									  					<f:param name="id" value="${employee.id}" />
 									  				</h:link>
-	    										</td>
-	    										<td>
-	    											<h:form>
-										  				<h:commandLink 
+	    											<h:form style="display: inline;">
+														<h:commandLink
 															action="#{manageBean.removeEmployee(employee.id)}"
-										  					onclick="return confirm('Confirm delete ?');"
-										  					styleClass="glyphicon glyphicon-remove" />
-											  		</h:form>
-	    										</td>
+															onclick="return confirm('Confirm delete ?');"
+															styleClass="glyphicon glyphicon-remove" />
+													</h:form>
+												</td>
 								  			</tr>	
 										</c:forEach>
 									</table>

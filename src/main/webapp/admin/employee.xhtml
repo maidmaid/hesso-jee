@@ -27,11 +27,11 @@
 				</div>
 				<div class="form-group">
 					<label>Office</label>
-					<h:selectOneMenu value="#{manageBean.employee.office.id}" styleClass="form-control">
+					<h:selectOneMenu value="#{manageBean.officeId}" styleClass="form-control">
 						<f:selectItems value="#{manageBean.offices}" var="office" itemLabel="#{office.department.name} > #{office.name}" itemValue="#{office.id}" />
 					</h:selectOneMenu>
 				</div>
-				<h:commandButton value="Save" action="#{manageBean.updateEmployee}" styleClass="btn btn-success"/>
+				<h:commandButton value="Save" action="#{manageBean.updateEmployee}" styleClass="btn btn-primary"/>
 			</h:form>
 		</div>
     </ui:define>
