@@ -64,7 +64,7 @@ public class ManageBean {
 		Office office = work.getOfficeById(officeId);
 		employee.setOffice(office);
 		work.updateEmployee(employee);
-		return "admin/employee";
+		return "index";
 	}
 
 	public List<Office> getOffices() {
