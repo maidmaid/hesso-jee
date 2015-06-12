@@ -150,14 +150,18 @@ public class ManageBean {
 	}
 	
 	public String updateDepartment() {		
-		Department departement = work.getDepartmentById(departmentId);
 		List<Office> offices = work.getOfficesByDepartment(departmentId);
-		departement.setOffices(offices);
-		work.updateDepartment(departement);
+		department.setOffices(offices);
+		work.updateDepartment(department);
 		return "index";
 	}
 	
 	public void loadDepartment() {
 		department = work.getDepartmentById(departmentId);
+	}
+	
+	public String removeDepartment(long id) {
+		work.removeDepartment(id);
+		return "index";
 	}
 }

@@ -6,6 +6,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Hibernate;
+
 import ch.hevs.businessobject.Department;
 import ch.hevs.businessobject.Employee;
 import ch.hevs.businessobject.Office;
@@ -44,7 +46,14 @@ public class WorkBean implements Work {
 
 	@Override
 	public List<Department> getDepartments() {
-		return (List<Department>) em.createQuery("SELECT d FROM Department d").getResultList();
+		List<Department> departements = em.createQuery("SELECT d FROM Department d").getResultList();
+		for (Department department : departements) {
+			Hibernate.initialize(department.getOffices());
+			for (Office office : department.getOffices()) {
+				Hibernate.initialize(office.getEmployees());
+			}
+		}
+		return departements;
 	}
 
 	@Override
@@ -87,6 +96,14 @@ public class WorkBean implements Work {
 	@Override
 	public void updateDepartment(Department departement) {
 		em.merge(departement);
+		em.flush();
+	}
+
+	@Override
+	public void removeDepartment(long id) {
+		Department department = em.find(Department.class, id);
+		
+		em.remove(department);
 		em.flush();
 	}
 }

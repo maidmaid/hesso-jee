@@ -22,7 +22,19 @@
 			<div class="col-sm-3"> 
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title"><h:outputText value="${department.name}" /></h3>
+						<h3 class="panel-title" style="display: inline-block;"><h:outputText value="${department.name}" /></h3>
+						<span style="display: inline-block; float: right;">
+							<h:link outcome="admin/department" styleClass="glyphicon glyphicon-edit" style="color: white;">
+			  					<f:param name="id" value="${department.id}" />
+			  				</h:link>
+							<h:form style="display: inline;">
+								<h:commandLink
+									action="#{manageBean.removeDepartment(department.id)}"
+									onclick="return confirm('Confirm delete ?');"
+									styleClass="glyphicon glyphicon-remove"
+									style="color: white;" />
+							</h:form>
+						</span>
 					</div>
 					<div class="panel-body">
 						<c:forEach var="office" items="#{ department.offices }">
@@ -30,7 +42,7 @@
 								<div class="panel panel-info">
 									<div class="panel-heading">
 										<h3 class="panel-title" style="display: inline-block;"><h:outputText value="${office.name}" /></h3>
-										<span class="text-right" style="display: inline-block;">
+										<span style="display: inline-block; float: right;">
     										<h:link outcome="admin/office" styleClass="glyphicon glyphicon-edit">
 							  					<f:param name="id" value="${office.id}" />
 							  				</h:link>

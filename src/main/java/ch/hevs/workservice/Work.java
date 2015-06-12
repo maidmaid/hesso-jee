@@ -23,4 +23,5 @@ public interface Work {
 	public Department getDepartmentById(long id);
 	public void removeOffice(long id);
 	public void updateDepartment(Department departement);
+	public void removeDepartment(long id);
 }

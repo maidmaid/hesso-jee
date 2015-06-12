@@ -24,7 +24,7 @@ public class Department {
 	private String name;
 
 	// relations
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "department", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "department", orphanRemoval=true, cascade = CascadeType.ALL)
 	private List<Office> offices;
 	
 	// id
