@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="Employee")
@@ -19,9 +22,11 @@ public class Employee {
 	private long id;
 	
 	@Column(name="firstname")
+	@NotBlank
 	private String firstname;
 	
 	@Column(name="lastname")
+	@NotBlank
 	private String lastname;
 
 	// relations

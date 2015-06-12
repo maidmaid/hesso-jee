@@ -19,7 +19,8 @@
 				<h:inputHidden value="#{manageBean.department.id}" />
 				<div class="form-group">
 					<label>Name</label>
-					<h:inputText value="#{manageBean.department.name}" styleClass="form-control"/>	
+					<h:inputText value="#{manageBean.department.name}" styleClass="form-control" id="department-name" />
+					<h:message for="department-name" />	
 				</div>
 				<h:commandButton value="Save" action="#{manageBean.updateDepartment}" styleClass="btn btn-primary"/>
 			</h:form>

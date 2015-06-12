@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="Office")
@@ -23,6 +26,7 @@ public class Office {
 	private long id;
 	
 	@Column(name="name")
+	@NotBlank
 	private String name;
 	
 	@Column(name="capacity")
