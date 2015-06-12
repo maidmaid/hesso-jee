@@ -14,15 +14,26 @@
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
-		<h:form>
-			<h:inputHidden value="#{manageBean.employee.id}" />
-	    	<h:inputText value="#{manageBean.employee.firstname}" />
-	    	<h:inputText value="#{manageBean.employee.lastname}" />
-			<h:selectOneMenu value="#{manageBean.officeId}">
-				<f:selectItems value="#{manageBean.offices}" var="office" itemLabel="#{office.department.name} > #{office.name}" itemValue="#{office.id}" />
-			</h:selectOneMenu>
-			<h:commandButton value="Save" action="#{manageBean.updateEmployee}" />
-		</h:form>
+    	<div class="container">
+			<h:form>
+				<h:inputHidden value="#{manageBean.employee.id}" />
+				<div class="form-group">
+					<label>Firstname</label>
+					<h:inputText value="#{manageBean.employee.firstname}" styleClass="form-control"/>	
+				</div>
+				<div class="form-group">
+					<label>Lastname</label>
+					<h:inputText value="#{manageBean.employee.lastname}" styleClass="form-control"/>	
+				</div>
+				<div class="form-group">
+					<label>Office</label>
+					<h:selectOneMenu value="#{manageBean.employee.office.id}" styleClass="form-control">
+						<f:selectItems value="#{manageBean.offices}" var="office" itemLabel="#{office.department.name} > #{office.name}" itemValue="#{office.id}" />
+					</h:selectOneMenu>
+				</div>
+				<h:commandButton value="Save" action="#{manageBean.updateEmployee}" styleClass="btn btn-success"/>
+			</h:form>
+		</div>
     </ui:define>
 </ui:composition>
 </html>
