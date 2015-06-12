@@ -25,8 +25,11 @@ public class ManageBean {
 	
 	private List<Office> offices;
 	private long officeId;
+	private Office office;
 	
 	private List<Department> departments;
+	private long departmentId;
+	private Department department;
 
 	@PostConstruct
     public void initialize() {
@@ -34,6 +37,8 @@ public class ManageBean {
 		offices = work.getOffices();
 		departments = work.getDepartments();
 		employee = new Employee();
+		setOffice(new Office());
+		department = new Department();
     }
 
 	// employees
@@ -98,5 +103,61 @@ public class ManageBean {
 	public String removeEmployee(long id) {
 		work.removeEmployee(id);
 		return "index";
+	}
+	
+	public void loadOffice() {
+		setOffice(work.getOfficeById(officeId));
+	}
+	
+	public String updateOffice() {
+		Department department = work.getDepartmentById(getDepartmentId());
+		office.setDepartment(department);
+		
+		List<Employee> employees = work.getEmployeesByOffice(office.getId());
+		office.setEmployees(employees);
+		
+		work.updateOffice(getOffice());
+		return "index";
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Office getOffice() {
+		return office;
+	}
+
+	public void setOffice(Office office) {
+		this.office = office;
+	}
+
+	public long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(long departmentId) {
+		this.departmentId = departmentId;
+	}
+	
+	public String removeOffice(long id) {
+		work.removeOffice(id);
+		return "index";
+	}
+	
+	public String updateDepartment() {		
+		Department departement = work.getDepartmentById(departmentId);
+		List<Office> offices = work.getOfficesByDepartment(departmentId);
+		departement.setOffices(offices);
+		work.updateDepartment(departement);
+		return "index";
+	}
+	
+	public void loadDepartment() {
+		department = work.getDepartmentById(departmentId);
 	}
 }

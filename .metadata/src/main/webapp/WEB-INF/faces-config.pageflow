@@ -3,8 +3,12 @@
   <nodes xsi:type="pageflow:PFPage" name="welcomeBank.xhtml" x="122" y="178" id="pf14340995599880" referenceLink="//@navigationRule.0/@fromViewId|" path="/welcomeBank.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="transferForm.xhtml" x="122" y="562" id="pf14340995599882" referenceLink="//@navigationRule.2/@fromViewId|" path="/transferForm.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="showTransferResult.xhtml" x="122" y="1330" id="pf14340995599884" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/showTransferResult.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="946" id="pf143410716091225" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf143412103899733" inlinks="pf143412046210427 pf143412103899733" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="946" id="pf143410716091225" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf143412103899733" inlinks="pf143412046210427 pf143412103899733 pf143413599029434 pf143413969520236" path="/index.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="admin/employee.xhtml" x="122" y="946" id="pf143412046210429" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf143412046210427" path="/admin/employee.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin/office.xhtml" id="pf143413599029435" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf143413599029434" path="/admin/office.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin/department.xhtml" id="pf143413969520237" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf143413969520236" path="/admin/department.xhtml"/>
   <links id="pf143412046210427" target="pf143410716091225" source="pf143412046210429" outcome="index" redirect="true"/>
   <links id="pf143412103899733" target="pf143410716091225" source="pf143410716091225" outcome="index" redirect="true"/>
+  <links id="pf143413599029434" target="pf143410716091225" source="pf143413599029435" outcome="index" redirect="true"/>
+  <links id="pf143413969520236" target="pf143410716091225" source="pf143413969520237" outcome="index" redirect="true"/>
 </pageflow:Pageflow>

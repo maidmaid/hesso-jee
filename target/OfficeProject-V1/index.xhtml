@@ -29,7 +29,18 @@
 							<div>
 								<div class="panel panel-info">
 									<div class="panel-heading">
-										<h3 class="panel-title"><h:outputText value="${office.name}" /></h3>
+										<h3 class="panel-title" style="display: inline-block;"><h:outputText value="${office.name}" /></h3>
+										<span class="text-right" style="display: inline-block;">
+    										<h:link outcome="admin/office" styleClass="glyphicon glyphicon-edit">
+							  					<f:param name="id" value="${office.id}" />
+							  				</h:link>
+   											<h:form style="display: inline;">
+												<h:commandLink
+													action="#{manageBean.removeOffice(office.id)}"
+													onclick="return confirm('Confirm delete ?');"
+													styleClass="glyphicon glyphicon-remove" />
+											</h:form>
+										</span>
 									</div>
 									<table class="table">
 	    								<c:forEach var="employee" items="#{ office.employees }">

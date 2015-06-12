@@ -51,7 +51,42 @@ public class WorkBean implements Work {
 	public void removeEmployee(long id) {
 		Employee employee = em.find(Employee.class, id);
 		
+		em.merge(employee);
 		em.remove(employee);
+		em.flush();
+	}
+
+	@Override
+	public void updateOffice(Office office) {
+		em.merge(office);
+		em.flush();
+	}
+	
+	public Department getDepartmentById(long id) {
+		return em.find(Department.class, id);
+	}
+
+	@Override
+	public List<Employee> getEmployeesByOffice(long id) {
+		return (List<Employee>) em.createQuery("SELECT e FROM Employee e WHERE e.office.id = :id").setParameter("id", id).getResultList();
+	}
+
+	@Override
+	public void removeOffice(long id) {
+		Office office = em.find(Office.class, id);
+		
+		em.remove(office);
+		em.flush();
+	}
+
+	@Override
+	public List<Office> getOfficesByDepartment(long id) {
+		return (List<Office>) em.createQuery("SELECT o FROM Office o WHERE o.department.id = :id").setParameter("id", id).getResultList();
+	}
+
+	@Override
+	public void updateDepartment(Department departement) {
+		em.merge(departement);
 		em.flush();
 	}
 }

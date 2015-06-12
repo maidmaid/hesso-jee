@@ -33,7 +33,7 @@ public class Office {
 	private Department department;
 	
 	// relations
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "office", orphanRemoval=true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "office", orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<Employee> employees;
 	
 	// id
