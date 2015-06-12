@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import ch.hevs.businessobject.Department;
 import ch.hevs.businessobject.Employee;
 import ch.hevs.businessobject.Office;
 import ch.hevs.workservice.Work;
@@ -24,12 +25,15 @@ public class ManageBean {
 	
 	private List<Office> offices;
 	private long officeId;
+	
+	private List<Department> departments;
 
 	@PostConstruct
     public void initialize() {
-		setEmployees(work.getEmployees());
-		employee = new Employee();
+		employees = work.getEmployees();
 		offices = work.getOffices();
+		departments = work.getDepartments();
+		employee = new Employee();
     }
 
 	// employees
@@ -81,5 +85,13 @@ public class ManageBean {
 
 	public void setOfficeId(long officeId) {
 		this.officeId = officeId;
+	}
+
+	public List<Department> getDepartments() {
+		return departments;
+	}
+
+	public void setDepartments(List<Department> departments) {
+		this.departments = departments;
 	}
 }

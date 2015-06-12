@@ -9,16 +9,37 @@
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
-        <c:forEach var="employee" items="#{ manageBean.employees }"> 
-	        <div>
-				<h:outputText value="${employee.id}" />
-				<h:outputText value="${employee.firstname}" />
-				<h:outputText value="${employee.lastname}" />
-				<h:outputText value="${employee.office.name}" />
-				<h:outputText value="${employee.office.department.name}" />
-				<h:link value="Update" outcome="admin/employee">
-		  			<f:param name="id" value="${employee.id}" />
-		  		</h:link>
+		<c:forEach var="department" items="#{ manageBean.departments }">
+			<div class="col-sm-3"> 
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><h:outputText value="${department.name}" /></h3>
+					</div>
+					<div class="panel-body">
+						<c:forEach var="office" items="#{ department.offices }">
+							<div>
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<h3 class="panel-title"><h:outputText value="${office.name}" /></h3>
+									</div>
+									<table class="table">
+	    								<c:forEach var="employee" items="#{ office.employees }">
+	    									<tr>
+	    										<td><h:outputText value="${employee.firstname}" /></td>
+	    										<td><h:outputText value="${employee.lastname}" /></td>
+	    										<td>
+		    										<h:link outcome="admin/employee" styleClass="glyphicon glyphicon-edit">
+									  					<f:param name="id" value="${employee.id}" />
+									  				</h:link>
+	    										</td>
+								  			</tr>	
+										</c:forEach>
+									</table>
+								</div>		
+							</div>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 		</c:forEach>
     </ui:define>

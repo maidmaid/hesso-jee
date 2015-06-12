@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import ch.hevs.businessobject.Department;
 import ch.hevs.businessobject.Employee;
 import ch.hevs.businessobject.Office;
 
@@ -14,4 +15,5 @@ public interface Work {
 	public void updateEmployee(Employee employee);
 	public List<Office> getOffices();
 	public Office getOfficeById(long id);
+	public List<Department> getDepartments();
 }
