@@ -9,6 +9,15 @@
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
+    	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<h:link outcome="admin/employee" styleClass="btn btn-default navbar-btn" value="Add an new employee"/>
+				<h:link outcome="admin/office" styleClass="btn btn-default navbar-btn" value="Add an new office"/>
+				<h:link outcome="admin/department" styleClass="btn btn-default navbar-btn" value="Add an new department"/>
+			</div>
+		</nav>
+    	
 		<c:forEach var="department" items="#{ manageBean.departments }">
 			<div class="col-sm-3"> 
 				<div class="panel panel-primary">
@@ -31,6 +40,14 @@
 		    										<h:link outcome="admin/employee" styleClass="glyphicon glyphicon-edit">
 									  					<f:param name="id" value="${employee.id}" />
 									  				</h:link>
+	    										</td>
+	    										<td>
+	    											<h:form>
+										  				<h:commandLink 
+															action="#{manageBean.removeEmployee(employee.id)}"
+										  					onclick="return confirm('Confirm delete ?');"
+										  					styleClass="glyphicon glyphicon-remove" />
+											  		</h:form>
 	    										</td>
 								  			</tr>	
 										</c:forEach>

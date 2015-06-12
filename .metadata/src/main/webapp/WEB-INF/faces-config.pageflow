@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14141592409490" configfile="/OfficeProject/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="welcomeBank.xhtml" x="122" y="178" id="pf14340995599880" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14340995599881" path="/welcomeBank.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="transferForm.xhtml" x="338" y="178" id="pf14340995599882" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14340995599883" inlinks="pf14340995599881" path="/transferForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="showTransferResult.xhtml" x="554" y="178" id="pf14340995599884" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14340995599883" path="/showTransferResult.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf143410716091225" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf143410716091226" inlinks="pf143410716091226" path="/index.xhtml"/>
-  <links id="pf14340995599881" target="pf14340995599882" source="pf14340995599880" outcome="transferForm"/>
-  <links id="pf14340995599883" target="pf14340995599884" source="pf14340995599882" outcome="#{transferBean.performTransfer}"/>
-  <links id="pf143410716091226" target="pf143410716091225" source="pf143410716091225" outcome="employee"/>
+  <nodes xsi:type="pageflow:PFPage" name="welcomeBank.xhtml" x="122" y="178" id="pf14340995599880" referenceLink="//@navigationRule.0/@fromViewId|" path="/welcomeBank.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="transferForm.xhtml" x="122" y="562" id="pf14340995599882" referenceLink="//@navigationRule.2/@fromViewId|" path="/transferForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="showTransferResult.xhtml" x="122" y="1330" id="pf14340995599884" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/showTransferResult.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="946" id="pf143410716091225" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf143412103899733" inlinks="pf143412046210427 pf143412103899733" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin/employee.xhtml" x="122" y="946" id="pf143412046210429" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf143412046210427" path="/admin/employee.xhtml"/>
+  <links id="pf143412046210427" target="pf143410716091225" source="pf143412046210429" outcome="index" redirect="true"/>
+  <links id="pf143412103899733" target="pf143410716091225" source="pf143410716091225" outcome="index" redirect="true"/>
 </pageflow:Pageflow>

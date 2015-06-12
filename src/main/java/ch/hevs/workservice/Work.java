@@ -16,4 +16,5 @@ public interface Work {
 	public List<Office> getOffices();
 	public Office getOfficeById(long id);
 	public List<Department> getDepartments();
+	public void removeEmployee(long id);
 }

@@ -94,4 +94,9 @@ public class ManageBean {
 	public void setDepartments(List<Department> departments) {
 		this.departments = departments;
 	}
+	
+	public String removeEmployee(long id) {
+		work.removeEmployee(id);
+		return "index";
+	}
 }

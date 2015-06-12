@@ -46,4 +46,12 @@ public class WorkBean implements Work {
 	public List<Department> getDepartments() {
 		return (List<Department>) em.createQuery("SELECT d FROM Department d").getResultList();
 	}
+
+	@Override
+	public void removeEmployee(long id) {
+		Employee employee = em.find(Employee.class, id);
+		
+		em.remove(employee);
+		em.flush();
+	}
 }
